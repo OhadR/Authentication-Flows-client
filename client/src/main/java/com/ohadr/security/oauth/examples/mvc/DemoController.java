@@ -14,7 +14,7 @@ import com.ohadr.security.oauth.examples.DemoService;
  * @author Dave Syer
  */
 @Controller
-@RequestMapping("/hello")
+@RequestMapping("/secure/hello")
 public class DemoController
 {
 
