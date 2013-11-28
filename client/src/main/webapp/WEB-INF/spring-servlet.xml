@@ -15,6 +15,7 @@
     <context:property-placeholder location="classpath:/client.properties" />
 
     <context:component-scan base-package="com.ohadr.security.oauth.examples" />
+    <context:component-scan base-package="com.ohadr.auth_flows.*" />
 
     <context:annotation-config />
 
