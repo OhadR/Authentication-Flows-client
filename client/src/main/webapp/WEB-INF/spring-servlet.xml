@@ -16,6 +16,7 @@
 
     <context:component-scan base-package="com.ohadr.security.oauth.examples" />
     <context:component-scan base-package="com.ohadr.auth_flows.*" />
+    <context:component-scan base-package="com.ohadr.crypto.*" />
 
     <context:annotation-config />
 
@@ -82,5 +83,10 @@
 
 	<bean id="butkeDemoService" class="com.ohadr.security.oauth.examples.impl.DemoServiceImpl">
 	</bean>
+	
+	<bean id="passwordEncoder" 	class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
+		<constructor-arg value="256"/>
+	</bean>
+	
 	
 </beans>
