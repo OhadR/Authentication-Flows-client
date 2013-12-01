@@ -7,7 +7,7 @@
 	<h3>Restore Message was sent</h3>
 			<div style="margin-top:  25px ;position: relative; font:15px">
 					A restore message was sent to <span style="font-weight:bold"><%= request.getParameter("email") %></span><br>
-					Please follow the instructions in the message to complete the authentication process. 
+					Please follow the instructions in the message in order to set a new password. 
 			</div>
 
 </body>
