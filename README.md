@@ -1,13 +1,21 @@
 Authentication-Flows
 ====================
 
-this project is the use case for the "authentication-flows" jar, that its project is here (under oAuth sample)
+This project is the client, which is a web-app that uses Spring Security, and uses in addition the "authentication-flows" 
+jar. The  "authentication-flows" project is here (under oAuth sample):
 https://github.com/OhadR/oAuth2-sample/tree/master/authentication-flows
 The Authentication-Flows has its own dependencies; read about it in its own README.
 
-the Authentication-Flows JAR implements all authentication flows: create account, forgot password, change password, etc.
+The Authentication-Flows JAR implements all authentication flows: 
+create account, 
+forgot password, 
+change password by user request, 
+force change password if password is expired
 
-the client, which is a WAR, should add the HTMLs and JSPs to its project, under WEB-INF directory.
+The client, which is a WAR, should add the HTMLs and JSPs to its project, under webapp/login directory.
+
+This is not a game - I use here cryptography in order to encrypt the data in the links that are sent to the user's email.
+
 NOTE:Spring's generic login.html is not good enought, since it lacks links to the "register" and "forgot password".
 
 Client's Beans.XML
