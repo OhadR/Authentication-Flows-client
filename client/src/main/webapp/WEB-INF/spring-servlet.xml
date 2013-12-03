@@ -89,4 +89,28 @@
 	</bean>
 	
 	
+	
+    <bean id="userDetailsService"
+          class="org.springframework.security.provisioning.JdbcUserDetailsManager">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="enableGroups" value="false"/>
+        <property name="rolePrefix" value="ROLE_"/>
+    </bean>
+
+
+    <!-- data-source -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.jamonapi.proxy.JAMonDriver"/>
+        <property name="jdbcUrl"
+                  value="jdbc:jamon:mysql://${com.ohadr.oauth2.db.host}:${com.ohadr.oauth2.db.port}/${com.ohadr.oauth2.db.schema}?jamonrealdriver=org.gjt.mm.mysql.Driver;useUnicode=true&amp;characterEncoding=utf-8"/>
+        <property name="user" value="${com.ohadr.oauth2.db.username}"/>
+        <property name="password" value="${com.ohadr.oauth2.db.password}"/>
+        <property name="acquireIncrement" value="1"/>
+        <property name="idleConnectionTestPeriod" value="100"/>
+        <property name="maxPoolSize" value="10"/>
+        <property name="maxStatements" value="5"/>
+        <property name="minPoolSize" value="5"/>
+    </bean>
+	
+	
 </beans>
