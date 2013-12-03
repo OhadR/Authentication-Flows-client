@@ -28,6 +28,31 @@ password encoder:
 add bean in the spring XML. it is in use in the UAC.
 
 
+Database
+========
+need to declare on dataSource bean, that is the connection to the DB.
+The connection properties are in client.properties.
+The client is responsible for creating a schema named 'auth-flows' in the DB. In this schema, there are tables,
+created using the following scripts:
+
+auth-policy
+-----------
+< script >
+
+auth-users
+----------
+CREATE  TABLE `auth-flows`.`auth-users` (
+  `EMAIL` VARCHAR(50) NOT NULL ,
+  `PASSWORD` VARCHAR(100) NOT NULL ,
+  `ENABLED` TINYINT(1)  NOT NULL DEFAULT 1 ,
+  `LOGIN_ATTEMPTS_COUNTER` INT NOT NULL,
+  `LAST_PSWD_CHANGE_DATE` DATETIME NOT NULL, 
+  PRIMARY KEY (`EMAIL`) ,
+  UNIQUE INDEX `idusers_UNIQUE` (`EMAIL` ASC) )
+  
+It is used by JdbcAuthenticationAccountRepositoryImpl class.
+
+
 TODO:
 remember me - decide what to do
 
