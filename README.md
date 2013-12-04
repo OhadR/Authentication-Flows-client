@@ -61,6 +61,10 @@ In DaoAuthenticationProvider.additionalAuthenticationChecks(), Spring checks the
 user entered, in front of the one in the DB. It calls to passwordEncoder.isPasswordValid().
 IT gets there only AFTER the check that user exists in 'user' table, *and in 'authorities' table*.
 
+Since we use Spring's 'username' column name in the DB (and not 'email' as planned), it is important to
+know that we expect the username to be the email of the user. we count on it by sending email to this 
+address.
+
 
 TODO:
 remember me - decide what to do
