@@ -35,22 +35,31 @@ The connection properties are in client.properties.
 The client is responsible for creating a schema named 'auth-flows' in the DB. In this schema, there are tables,
 created using the following scripts:
 
-auth-policy
------------
+TABLE: auth-policy
+------------------
 < script >
 
-auth-users
-----------
-CREATE  TABLE `auth-flows`.`auth-users` (
-  `EMAIL` VARCHAR(50) NOT NULL ,
+TABLE: users
+------------
+CREATE  TABLE `auth-flows`.`users` (
+  `USERNAME` VARCHAR(50) NOT NULL ,
   `PASSWORD` VARCHAR(100) NOT NULL ,
   `ENABLED` TINYINT(1)  NOT NULL DEFAULT 1 ,
   `LOGIN_ATTEMPTS_COUNTER` INT NOT NULL,
   `LAST_PSWD_CHANGE_DATE` DATETIME NOT NULL, 
-  PRIMARY KEY (`EMAIL`) ,
-  UNIQUE INDEX `idusers_UNIQUE` (`EMAIL` ASC) )
+  PRIMARY KEY (`USERNAME`) ,
+  UNIQUE INDEX `idusers_UNIQUE` (`USERNAME` ASC) )
   
 It is used by JdbcAuthenticationAccountRepositoryImpl class.
+
+Important note: in JdbcUserDetailsManager, Spring expects the table-name is 'user', and the 
+column 'username' for the authentication rxists. Unless a derived class changes it, these values
+must remain.
+In my solution I try to keep it simple and stay as close as I can to Spring' implementation.
+
+In DaoAuthenticationProvider.additionalAuthenticationChecks(), Spring checks the password the 
+user entered, in front of the one in the DB. It calls to passwordEncoder.isPasswordValid().
+IT gets there only AFTER the check that user exists in 'user' table, *and in 'authorities' table*.
 
 
 TODO:

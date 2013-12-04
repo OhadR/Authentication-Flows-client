@@ -68,6 +68,8 @@
  
 
 
+    <!--  for test purposes, work without JDBC 
+
     <sec:authentication-manager alias="authenticationManager">
 		<sec:authentication-provider user-service-ref="userDetailsService"/>
 	</sec:authentication-manager>
@@ -76,6 +78,26 @@
 		<sec:user name="admin"  password="admin"  authorities="ROLE_USER,ROLE_ADMIN" />
 	</sec:user-service>
 	
+	-->
+	<!-- till here test -->
+	
+
+
+	<sec:authentication-manager alias="authenticationManager">
+		<sec:authentication-provider user-service-ref="userDetailsService" >
+			<sec:password-encoder hash="sha-256">
+				<sec:salt-source user-property="username"/>
+			</sec:password-encoder>
+		</sec:authentication-provider>
+	</sec:authentication-manager>
+
+
+    <bean id="userDetailsService"
+          class="org.springframework.security.provisioning.JdbcUserDetailsManager">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="enableGroups" value="false"/>
+        <property name="rolePrefix" value="ROLE_"/>
+    </bean>
 
 
 
@@ -90,12 +112,8 @@
 	
 	
 	
-    <bean id="userDetailsService"
-          class="org.springframework.security.provisioning.JdbcUserDetailsManager">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="enableGroups" value="false"/>
-        <property name="rolePrefix" value="ROLE_"/>
-    </bean>
+    <!-- bean class="com.ohadr.auth_flows.mocks.InMemoryAuthenticationAccountRepositoryImpl" /-->
+    <bean class="com.ohadr.auth_flows.core.jdbc.JdbcAuthenticationAccountRepositoryImpl" />
 
 
     <!-- data-source -->
