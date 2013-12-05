@@ -45,7 +45,7 @@ CREATE  TABLE `auth-flows`.`users` (
   `USERNAME` VARCHAR(50) NOT NULL ,
   `PASSWORD` VARCHAR(100) NOT NULL ,
   `ENABLED` TINYINT(1)  NOT NULL DEFAULT 1 ,
-  `LOGIN_ATTEMPTS_COUNTER` INT NOT NULL,
+  `LOGIN_ATTEMPTS_COUNTER` INT NOT NULL DEFAULT 0,
   `LAST_PSWD_CHANGE_DATE` DATETIME NOT NULL, 
   PRIMARY KEY (`USERNAME`) ,
   UNIQUE INDEX `idusers_UNIQUE` (`USERNAME` ASC) )
@@ -64,6 +64,13 @@ IT gets there only AFTER the check that user exists in 'user' table, *and in 'au
 Since we use Spring's 'username' column name in the DB (and not 'email' as planned), it is important to
 know that we expect the username to be the email of the user. we count on it by sending email to this 
 address.
+
+upon login, Spring makes the checks of creds, and some checks before and some after.
+before: AbstractUserDetailsAuthenticationProvider.authenticate(), there are the checks. then
+there is a call to <code>preAuthenticationChecks.check(user)</code>. There, Spring checks the
+account is non-locked, enabled, and non-expired.
+after: Spring checks that the account credentials are non-expired. this is great for implementations
+that forces the user to change his password once in a while.
 
 
 TODO:
