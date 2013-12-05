@@ -92,15 +92,13 @@
 	</sec:authentication-manager>
 
 
-    <bean id="userDetailsService"
+    <!-- bean id="userDetailsService"
           class="org.springframework.security.provisioning.JdbcUserDetailsManager">
         <property name="dataSource" ref="dataSource"/>
         <property name="enableGroups" value="false"/>
         <property name="rolePrefix" value="ROLE_"/>
-    </bean>
-
-
-
+    </bean-->
+    
 
 
 	<bean id="butkeDemoService" class="com.ohadr.security.oauth.examples.impl.DemoServiceImpl">
@@ -112,8 +110,10 @@
 	
 	
 	
+    <!-- decide how you wanna work: in-mem repo, or jdbc impl: -->
     <!-- bean class="com.ohadr.auth_flows.mocks.InMemoryAuthenticationAccountRepositoryImpl" /-->
-    <bean class="com.ohadr.auth_flows.core.jdbc.JdbcAuthenticationAccountRepositoryImpl" />
+    <!-- bean class="com.ohadr.auth_flows.core.jdbc.JdbcAuthenticationAccountRepositoryImpl" /-->
+    <bean id="userDetailsService" class="com.ohadr.auth_flows.core.jdbc.JdbcAuthenticationAccountRepositoryImpl" />
 
 
     <!-- data-source -->
