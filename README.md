@@ -72,6 +72,10 @@ account is non-locked, enabled, and non-expired.
 after: Spring checks that the account credentials are non-expired. this is great for implementations
 that forces the user to change his password once in a while.
 
+IMPORTANT: in Spring, once the account is locked, or disabled, etc - the "Authentication Failure Listener"
+will not be called! (in my old algorith, I handled the 'locks', so as far as Spring concerned, the account
+was never locked, or password was never expired.
+
 
 TODO:
 remember me - decide what to do
