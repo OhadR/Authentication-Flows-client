@@ -92,7 +92,8 @@
 	</sec:authentication-manager>
 
 
-    <!-- bean id="userDetailsService"
+    <!-- do not use Spring's; use mine, see below 
+    bean id="userDetailsService"
           class="org.springframework.security.provisioning.JdbcUserDetailsManager">
         <property name="dataSource" ref="dataSource"/>
         <property name="enableGroups" value="false"/>
@@ -115,6 +116,7 @@
     <!-- bean class="com.ohadr.auth_flows.core.jdbc.JdbcAuthenticationAccountRepositoryImpl" /-->
     <bean id="userDetailsService" class="com.ohadr.auth_flows.core.jdbc.JdbcAuthenticationAccountRepositoryImpl" />
 
+    <bean class="com.ohadr.auth_flows.core.jdbc.JdbcAuthenticationPolicyRepositoryImpl" />
 
     <!-- data-source -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
