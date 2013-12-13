@@ -39,9 +39,22 @@ The connection properties are in client.properties.
 The client is responsible for creating a schema named 'auth-flows' in the DB. In this schema, there are tables,
 created using the following scripts:
 
-TABLE: auth-policy
+TABLE: policy
 ------------------
-< script >
+CREATE TABLE `policy` (
+  `POLICY_ID` int(10) unsigned NOT NULL,
+  `PASSWORD_MIN_LENGTH` int(11) DEFAULT NULL,
+  `PASSWORD_MAX_LENGTH` int(11) DEFAULT NULL,
+  `PASSWORD_MIN_UPCASE_CHARS` int(11) DEFAULT NULL,
+  `PASSWORD_MIN_LOCASE_CHARS` int(11) DEFAULT NULL,
+  `PASSWORD_MIN_NUMERALS` int(11) DEFAULT NULL,
+  `PASSWORD_MIN_SPECIAL_SYMBOLS` int(11) DEFAULT NULL,
+  `PASSWORD_BLACKLIST` longtext,
+  `MAX_PASSWORD_ENTRY_ATTEMPTS` int(11) DEFAULT NULL,
+  `PASSWORD_LIFE_IN_DAYS` int(11) DEFAULT NULL,
+  `REMEMBER_ME_VALIDITY_IN_DAYS` int(11) DEFAULT NULL,
+  PRIMARY KEY (`POLICY_ID`)
+)
 
 TABLE: users
 ------------
@@ -52,7 +65,8 @@ CREATE  TABLE `auth-flows`.`users` (
   `LOGIN_ATTEMPTS_COUNTER` INT NOT NULL DEFAULT 0,
   `LAST_PSWD_CHANGE_DATE` DATETIME NOT NULL, 
   PRIMARY KEY (`USERNAME`) ,
-  UNIQUE INDEX `idusers_UNIQUE` (`USERNAME` ASC) )
+  UNIQUE INDEX `idusers_UNIQUE` (`USERNAME` ASC) 
+  )
   
 It is used by JdbcAuthenticationAccountRepositoryImpl class.
 
