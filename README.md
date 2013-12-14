@@ -108,3 +108,7 @@ In this example, I did not support this, in order to simplify the solution.
 Redirect URI:
 big role in authentication, lets the server know where to redirect the user to.
 In this example, I did not support this, in order to simplify the solution.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/OhadR/authentication-flows/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
