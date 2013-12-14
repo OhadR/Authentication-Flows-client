@@ -7,6 +7,15 @@
 
 <body onload='document.f.email.focus();InitCreateAccount();'>
 	<h3>Create Account</h3>
+
+	<%   
+	    if ( null != request.getParameter("err_msg") ) {
+	%>	
+	<div style="margin-top:  25px ;position: relative; color: red; font:15px">
+		<span style="font-weight:bold"><%= request.getParameter("err_msg") %></span>
+	</div>
+	<%   } %>
+	
 	<form name='f' 
 		action='../createAccount'
 		method='POST'>
