@@ -113,13 +113,13 @@ summary:
 2. in the <code>UserActionController.java</code>, uncomment the lines:
 
 <pre>	
-	@Autowired<br>
+	@Autowired
 	private AbstractRememberMeServices rememberMeService;</pre>
 
 3. then, in UserActionController.java, 
 
 <pre>	//read the value from the policy (from the DB):
-	int rememberMeTokenValidityInDays = settings.getRememberMeTokenValidityInDays();<br>
+	int rememberMeTokenValidityInDays = settings.getRememberMeTokenValidityInDays();
 
 	//get the "remem-me" bean and update its validity:
 	rememberMeService.setTokenValiditySeconds(rememberMeTokenValidityInDays * 60 * 60 * 24);</pre>
