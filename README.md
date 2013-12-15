@@ -95,11 +95,33 @@ will not be called! (in my old algorith, I handled the 'locks', so as far as Spr
 was never locked, or password was never expired.
 
 
-TODO:
-remember me - decide what to do
+Remember-Me
+-----------
+the "remember me: feature is not implemented here, since it does not serve the purpose of the authentication
+flows. it is possible to read from the "policy" table that value that indicates for how long the "remember
+me" cookie will be valid, but it is up to the developer to decide whether to implement it or not.
+I assume the user knows how to use Spring's Remember-Me feature, otherwise read the documentations. But for a short
+summary:
+1. in the client's beans.xml add the remember me tag:
+       <security:remember-me 
+			data-source-ref="dataSource"
+			user-service-ref="userDetailsService"/>
+
+2. in the UserActionController.java, uncomment the lines:
+	@Autowired
+	private AbstractRememberMeServices rememberMeService;
+3. then, in UserActionController.java, 
+        //read the value from the policy (from the DB):
+        int rememberMeTokenValidityInDays = settings.getRememberMeTokenValidityInDays();
+
+        //get the "remem-me" bean and update its validity:
+        rememberMeService.setTokenValiditySeconds(rememberMeTokenValidityInDays * 60 * 60 * 24);
+
+and you are ready to go. 
 
 
 Forgot Password Flow:
+---------------------
 Currently, the user clicks on "Forgot Password", enters his password and the system generates and sends 
 an email with restore-link. There are security issues that might arise here, such as how can we make sure
 that this is the 'real' user? for these cases, some implementations can add a mechanism of "secret question".
