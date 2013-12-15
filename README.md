@@ -37,7 +37,7 @@ password encoder
 add bean in the spring XML. it is in use in the `UserActionController`.
 
 ```xml
-<xml>
+<myxml>
 	<sec:authentication-manager alias="authenticationManager">
 		<sec:authentication-provider user-service-ref="userDetailsService" >
 			<sec:password-encoder hash="sha-256">
@@ -49,7 +49,7 @@ add bean in the spring XML. it is in use in the `UserActionController`.
 	<bean id="passwordEncoder" 	class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
 		<constructor-arg value="256"/>
 	</bean>
-</xml>
+</myxml>
 
 
 Database
