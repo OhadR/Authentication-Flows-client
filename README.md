@@ -24,14 +24,31 @@ upon user's registration and "forget password" flows.
 
 Client's [Spring-Beans.XML](client/src/main/webapp/WEB-INF/spring-servlet.xml)
 ===========================
+Component-Scan
+--------------
 the XML should contain to the component-scan path the following paths:
 <pre>
 com.ohadr.auth_flows.*
 com.ohadr.crypto.*
 </pre>
 
-password encoder:
-add bean in the spring XML. it is in use in the UAC.
+password encoder
+----------------
+add bean in the spring XML. it is in use in the `UserActionController`.
+
+<pre>
+	<sec:authentication-manager alias="authenticationManager">
+		<sec:authentication-provider user-service-ref="userDetailsService" >
+			<sec:password-encoder hash="sha-256">
+				<sec:salt-source user-property="username"/>
+			</sec:password-encoder>
+		</sec:authentication-provider>
+	</sec:authentication-manager>
+
+	<bean id="passwordEncoder" 	class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
+		<constructor-arg value="256"/>
+	</bean>
+</pre>
 
 
 Database
