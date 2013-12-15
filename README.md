@@ -22,11 +22,13 @@ To make it serious, I use here cryptography in order to encrypt the data in the 
 upon user's registration and "forget password" flows.
 
 
-Client's Beans.XML
-==================
-the client must add to the component-scan path the following paths:
+Client's [Spring-Beans.XML](client/src/main/webapp/WEB-INF/spring-servlet.xml)
+===========================
+the XML should contain to the component-scan path the following paths:
+<pre>
 com.ohadr.auth_flows.*
 com.ohadr.crypto.*
+</pre>
 
 password encoder:
 add bean in the spring XML. it is in use in the UAC.
@@ -41,6 +43,7 @@ created using the following scripts:
 
 TABLE: policy
 ------------------
+<pre>
 CREATE TABLE `policy` (
   `POLICY_ID` int(10) unsigned NOT NULL,
   `PASSWORD_MIN_LENGTH` int(11) DEFAULT NULL,
@@ -55,9 +58,11 @@ CREATE TABLE `policy` (
   `REMEMBER_ME_VALIDITY_IN_DAYS` int(11) DEFAULT NULL,
   PRIMARY KEY (`POLICY_ID`)
 )
+</pre>
 
 TABLE: users
 ------------
+<pre>
 CREATE  TABLE `auth-flows`.`users` (
   `USERNAME` VARCHAR(50) NOT NULL ,
   `PASSWORD` VARCHAR(100) NOT NULL ,
@@ -67,6 +72,7 @@ CREATE  TABLE `auth-flows`.`users` (
   PRIMARY KEY (`USERNAME`) ,
   UNIQUE INDEX `idusers_UNIQUE` (`USERNAME` ASC) 
   )
+</pre>
   
 It is used by JdbcAuthenticationAccountRepositoryImpl class.
 
