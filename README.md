@@ -97,7 +97,7 @@ was never locked, or password was never expired.
 
 Remember-Me
 -----------
-the "remember me: feature is not implemented here, since it does not serve the purpose of the authentication
+the "remember me" feature is *not* implemented here, since it does not serve the purpose of the authentication
 flows. it is possible to read from the "policy" table that value that indicates for how long the "remember
 me" cookie will be valid, but it is up to the developer to decide whether to implement it or not.
 I assume the user knows how to use Spring's Remember-Me feature, otherwise read the documentations. But for a short
