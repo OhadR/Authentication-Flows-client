@@ -37,7 +37,6 @@ password encoder
 add bean in the spring XML. it is in use in the `UserActionController`.
 
 ```xml
-<myxml>
 	<sec:authentication-manager alias="authenticationManager">
 		<sec:authentication-provider user-service-ref="userDetailsService" >
 			<sec:password-encoder hash="sha-256">
@@ -49,7 +48,6 @@ add bean in the spring XML. it is in use in the `UserActionController`.
 	<bean id="passwordEncoder" 	class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
 		<constructor-arg value="256"/>
 	</bean>
-</myxml>
 
 
 Database
@@ -128,11 +126,10 @@ I assume the user knows how to use Spring's Remember-Me feature, otherwise read 
 summary:
 
 1. in the client's [beans.xml](client/src/main/webapp/WEB-INF/spring-servlet.xml) add the remember me tag:
-<pre>
-	security:remember-me 
+```xml
+	<security:remember-me 
 			data-source-ref="dataSource"
-			user-service-ref="userDetailsService"/
-</pre>
+			user-service-ref="userDetailsService"/>
 
 2. in the <code>UserActionController.java</code>, uncomment the lines:
 
