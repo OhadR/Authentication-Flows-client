@@ -103,7 +103,7 @@ me" cookie will be valid, but it is up to the developer to decide whether to imp
 I assume the user knows how to use Spring's Remember-Me feature, otherwise read the documentations. But for a short
 summary:
 
-1. in the client's [beans.xml](client\src\main\webapp\WEB-INF\spring-servlet.xml) add the remember me tag:
+1. in the client's [beans.xml](client/src/main/webapp/WEB-INF/spring-servlet.xml) add the remember me tag:
 <pre>
 	security:remember-me 
 			data-source-ref="dataSource"
