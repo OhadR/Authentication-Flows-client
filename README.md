@@ -104,23 +104,24 @@ I assume the user knows how to use Spring's Remember-Me feature, otherwise read 
 summary:
 
 1. in the client's beans.xml add the remember me tag:
-<code>
+<pre>
 	security:remember-me 
 			data-source-ref="dataSource"
 			user-service-ref="userDetailsService"/
-</code>
+</pre>
 
 2. in the <code>UserActionController.java</code>, uncomment the lines:
 
-<code>@Autowired<br>
-	private AbstractRememberMeServices rememberMeService;</code>
+<pre>	
+	@Autowired<br>
+	private AbstractRememberMeServices rememberMeService;</pre>
 
 3. then, in UserActionController.java, 
 
-<pre>//read the value from the policy (from the DB):<br>
+<pre>	//read the value from the policy (from the DB):
 	int rememberMeTokenValidityInDays = settings.getRememberMeTokenValidityInDays();<br>
-<br>
-        //get the "remem-me" bean and update its validity:<br>
+
+	//get the "remem-me" bean and update its validity:
 	rememberMeService.setTokenValiditySeconds(rememberMeTokenValidityInDays * 60 * 60 * 24);</pre>
 
 and you are ready to go. 
