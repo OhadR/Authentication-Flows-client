@@ -102,25 +102,28 @@ flows. it is possible to read from the "policy" table that value that indicates 
 me" cookie will be valid, but it is up to the developer to decide whether to implement it or not.
 I assume the user knows how to use Spring's Remember-Me feature, otherwise read the documentations. But for a short
 summary:
+
 1. in the client's beans.xml add the remember me tag:
 <code>
-	<security:remember-me 
+	security:remember-me 
 			data-source-ref="dataSource"
-			user-service-ref="userDetailsService"/>
+			user-service-ref="userDetailsService"/
 </code>
 
 2. in the <code>UserActionController.java</code>, uncomment the lines:
 <code>
 	@Autowired
+
 	private AbstractRememberMeServices rememberMeService;
 </code>
+
 3. then, in UserActionController.java, 
 <code>
         //read the value from the policy (from the DB):
-        int rememberMeTokenValidityInDays = settings.getRememberMeTokenValidityInDays();
+	int rememberMeTokenValidityInDays = settings.getRememberMeTokenValidityInDays();
 
         //get the "remem-me" bean and update its validity:
-        rememberMeService.setTokenValiditySeconds(rememberMeTokenValidityInDays * 60 * 60 * 24);
+	rememberMeService.setTokenValiditySeconds(rememberMeTokenValidityInDays * 60 * 60 * 24);
 </code>
 
 and you are ready to go. 
