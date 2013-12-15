@@ -130,11 +130,11 @@ summary:
 1. in the client's [beans.xml](client/src/main/webapp/WEB-INF/spring-servlet.xml) add the remember me tag:
 
 ```xml
-<xml>
+<myxml>
 	<security:remember-me 
 			data-source-ref="dataSource"
 			user-service-ref="userDetailsService"/>
-</xml>
+</myxml>
 
 2. in the <code>UserActionController.java</code>, uncomment the lines:
 
