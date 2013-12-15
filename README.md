@@ -117,11 +117,11 @@ summary:
 
 3. then, in UserActionController.java, 
 
-<code>//read the value from the policy (from the DB):<br>
+<pre>//read the value from the policy (from the DB):<br>
 	int rememberMeTokenValidityInDays = settings.getRememberMeTokenValidityInDays();<br>
 <br>
         //get the "remem-me" bean and update its validity:<br>
-	rememberMeService.setTokenValiditySeconds(rememberMeTokenValidityInDays * 60 * 60 * 24);</code>
+	rememberMeService.setTokenValiditySeconds(rememberMeTokenValidityInDays * 60 * 60 * 24);</pre>
 
 and you are ready to go. 
 
