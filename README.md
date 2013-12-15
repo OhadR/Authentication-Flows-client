@@ -150,8 +150,12 @@ summary:
 and you are ready to go. 
 
 
+Registration Flow (Create Account)
+==================================
+TBD
+
 Forgot Password Flow
----------------------
+====================
 Currently, the user clicks on "Forgot Password", enters his password and the system generates and sends 
 an email with restore-link. There are security issues that might arise here, such as how can we make sure
 that this is the 'real' user? for these cases, some implementations can add a mechanism of "secret question".
