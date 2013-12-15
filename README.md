@@ -103,7 +103,7 @@ me" cookie will be valid, but it is up to the developer to decide whether to imp
 I assume the user knows how to use Spring's Remember-Me feature, otherwise read the documentations. But for a short
 summary:
 
-1. in the client's beans.xml add the remember me tag:
+1. in the client's [beans.xml](client\src\main\webapp\WEB-INF\spring-servlet.xml) add the remember me tag:
 <pre>
 	security:remember-me 
 			data-source-ref="dataSource"
@@ -127,7 +127,7 @@ summary:
 and you are ready to go. 
 
 
-Forgot Password Flow:
+Forgot Password Flow
 ---------------------
 Currently, the user clicks on "Forgot Password", enters his password and the system generates and sends 
 an email with restore-link. There are security issues that might arise here, such as how can we make sure
