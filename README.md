@@ -50,6 +50,14 @@ add bean in the spring XML. it is in use in the `UserActionController`.
 	</bean>
 ```
 
+authentication success handler
+------------------
+add this to the `<form-login>` block:
+<pre>
+	authentication-success-handler-ref="authenticationSuccessHandler"
+</pre>
+after a successful login, we need to check whether the user has to change hos password (if it is expired).
+
 Database
 ========
 need to declare on dataSource bean, that is the connection to the DB.

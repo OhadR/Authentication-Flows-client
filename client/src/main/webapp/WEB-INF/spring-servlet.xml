@@ -49,7 +49,12 @@
         
 		<sec:form-login 
 			login-page="/login/login.htm" 
+			authentication-success-handler-ref="authenticationSuccessHandler"
 			authentication-failure-url="/login/login.htm?login_error=1" />
+
+        <sec:remember-me 
+			data-source-ref="dataSource"
+			user-service-ref="userDetailsService"/>
 
         
 	</sec:http>
