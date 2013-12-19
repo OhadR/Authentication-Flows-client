@@ -22,6 +22,24 @@ To make it serious, authentication-flows JAR uses cryptography in order to encry
 upon user's registration and "forget password" flows.
 
 
+common-crypto
+=============
+The authentication-flows JAR use cryptography in order to encrypt the user's password, and the links that are sent to the user's email, upon 
+user's registration and "forget password" flows.
+There is a utility JAR, called "common-crypto" that makes life easier. You can find it
+[here](https://github.com/OhadR/oAuth2-sample/tree/master/common-crypto),
+and also it is available in Maven repository:
+
+```xml
+<dependency>
+  <groupId>com.ohadr</groupId>
+  <artifactId>common-crypto</artifactId>
+  <version>1.1.3</version>
+</dependency>
+```
+Note the version - make sure you use the latest.
+
+
 Client's [Spring-Beans.XML](client/src/main/webapp/WEB-INF/spring-servlet.xml)
 ===========================
 Component-Scan
