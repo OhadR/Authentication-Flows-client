@@ -28,15 +28,30 @@ The authentication-flows JAR use cryptography in order to encrypt the user's pas
 user's registration and "forget password" flows.
 There is a utility JAR, called "common-crypto" that makes life easier. You can find it
 [here](https://github.com/OhadR/oAuth2-sample/tree/master/common-crypto),
-and also it is available in Maven repository:
+and also it is available in Maven repository.  Add this dependency to your POM.xml:
 
 ```xml
 <dependency>
   <groupId>com.ohadr</groupId>
   <artifactId>common-crypto</artifactId>
-  <version>1.1.3</version>
+  <version>1.1.4</version>
 </dependency>
 ```
+Note the version - make sure you use the latest.
+
+Authentication-Flows on Maven Repository
+====================
+
+If you do not want to download the source from GitHub (which is recommended), you can use it directly
+from maven repository. Add this dependency to your POM.xml:
+```xml
+<dependency>
+  <groupId>com.ohadr</groupId>
+  <artifactId>authentication-flows</artifactId>
+  <version>1.1.4</version>
+</dependency>
+```
+
 Note the version - make sure you use the latest.
 
 
