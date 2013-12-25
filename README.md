@@ -54,10 +54,11 @@ from maven repository. Add this dependency to your POM.xml:
 
 Note the version - make sure you use the latest.
 
-
-Client's [Spring-Beans.XML](client/src/main/webapp/WEB-INF/spring-servlet.xml)
-===========================
-Component-Scan
+Configuration
+=============
+1. Client's [Spring-Beans.XML](client/src/main/webapp/WEB-INF/spring-servlet.xml)
+---------------------------
+1.1. Component-Scan
 --------------
 the XML should contain to the component-scan path the following paths:
 <pre>
@@ -65,7 +66,7 @@ com.ohadr.auth_flows.*
 com.ohadr.crypto.*
 </pre>
 
-password encoder
+1.2. password encoder
 ----------------
 add bean in the spring XML. it is in use in the `UserActionController`.
 
@@ -83,7 +84,7 @@ add bean in the spring XML. it is in use in the `UserActionController`.
 	</bean>
 ```
 
-authentication success handler
+1.3. authentication success handler
 ------------------
 add this to the `<form-login>` block:
 <pre>
@@ -91,14 +92,14 @@ add this to the `<form-login>` block:
 </pre>
 after a successful login, we need to check whether the user has to change hos password (if it is expired).
 
-Database
-========
+2. Database
+----------
 need to declare on dataSource bean, that is the connection to the DB.
 The connection properties are in client.properties.
 The client is responsible for creating a schema named 'auth-flows' in the DB. In this schema, there are tables,
 created using the following scripts:
 
-TABLE: policy
+2.1. TABLE: policy
 ------------------
 <pre>
 CREATE TABLE `policy` (
@@ -117,7 +118,7 @@ CREATE TABLE `policy` (
 )
 </pre>
 
-TABLE: users
+2.2. TABLE: users
 ------------
 <pre>
 CREATE  TABLE `auth-flows`.`users` (
@@ -160,10 +161,10 @@ will not be called! (in my old algorith, I handled the 'locks', so as far as Spr
 was never locked, or password was never expired.
 
 
-Remember-Me
+3. Remember-Me
 -----------
 the "remember me" feature is *not* implemented here, since it does not serve the purpose of the authentication
-flows. it is possible to read from the "policy" table that value that indicates for how long the "remember
+flows. It is possible to read from the "policy" table that value that indicates for how long the "remember
 me" cookie will be valid, but it is up to the developer to decide whether to implement it or not.
 I assume the user knows how to use Spring's Remember-Me feature, otherwise read the documentations. But for a short
 summary:
@@ -195,7 +196,7 @@ and you are ready to go.
 
 Registration Flow (Create Account)
 ==================================
-TBD
+Fully supported. For users: contact me if something is not clear enough.
 
 Forgot Password Flow
 ====================
@@ -204,9 +205,12 @@ an email with restore-link. There are security issues that might arise here, suc
 that this is the 'real' user? for these cases, some implementations can add a mechanism of "secret question".
 In this example, I did not support this, in order to simplify the solution.
 
-Redirect URI:
-big role in authentication, lets the server know where to redirect the user to.
-In this example, I did not support this, in order to simplify the solution.
+Redirect URI
+-------------
+"Redirect URI" has a big role in authentication, as it lets the server know where to redirect the user to.
+The redirect URI *can* be transferred in the registration email, for example so after the registration is finished
+and account is activated, the server still knows where to redirect the client to.
+*In this example, I did not support this, in order to simplify the solution.*
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/OhadR/authentication-flows/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
