@@ -58,8 +58,8 @@ Configuration
 =============
 1. Client's [Spring-Beans.XML](client/src/main/webapp/WEB-INF/spring-servlet.xml)
 ---------------------------
-1.1. Component-Scan
---------------
+**1.1. Component-Scan**
+
 the XML should contain to the component-scan path the following paths:
 <pre>
 com.ohadr.auth_flows.*
