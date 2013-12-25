@@ -66,8 +66,8 @@ com.ohadr.auth_flows.*
 com.ohadr.crypto.*
 </pre>
 
-1.2. password encoder
-----------------
+**1.2. password encoder**
+
 add bean in the spring XML. it is in use in the `UserActionController`.
 
 ```xml
@@ -84,8 +84,8 @@ add bean in the spring XML. it is in use in the `UserActionController`.
 	</bean>
 ```
 
-1.3. authentication success handler
-------------------
+**1.3. authentication success handler**
+
 add this to the `<form-login>` block:
 <pre>
 	authentication-success-handler-ref="authenticationSuccessHandler"
@@ -99,8 +99,8 @@ The connection properties are in client.properties.
 The client is responsible for creating a schema named 'auth-flows' in the DB. In this schema, there are tables,
 created using the following scripts:
 
-2.1. TABLE: policy
-------------------
+**2.1. TABLE: policy**
+
 <pre>
 CREATE TABLE `policy` (
   `POLICY_ID` int(10) unsigned NOT NULL,
@@ -118,8 +118,8 @@ CREATE TABLE `policy` (
 )
 </pre>
 
-2.2. TABLE: users
-------------
+**2.2. TABLE: users**
+
 <pre>
 CREATE  TABLE `auth-flows`.`users` (
   `USERNAME` VARCHAR(50) NOT NULL ,
@@ -161,39 +161,6 @@ will not be called! (in my old algorith, I handled the 'locks', so as far as Spr
 was never locked, or password was never expired.
 
 
-3. Remember-Me
------------
-the "remember me" feature is *not* implemented here, since it does not serve the purpose of the authentication
-flows. It is possible to read from the "policy" table that value that indicates for how long the "remember
-me" cookie will be valid, but it is up to the developer to decide whether to implement it or not.
-I assume the user knows how to use Spring's Remember-Me feature, otherwise read the documentations. But for a short
-summary:
-
-1. in the client's [beans.xml](client/src/main/webapp/WEB-INF/spring-servlet.xml) add the remember me tag:
-
-```xml
-	<security:remember-me 
-			data-source-ref="dataSource"
-			user-service-ref="userDetailsService"/>
-```
-
-2. in the <code>UserActionController.java</code>, uncomment the lines:
-
-<pre>	
-	@Autowired
-	private AbstractRememberMeServices rememberMeService;</pre>
-
-3. then, in UserActionController.java, 
-
-<pre>	//read the value from the policy (from the DB):
-	int rememberMeTokenValidityInDays = settings.getRememberMeTokenValidityInDays();
-
-	//get the "remem-me" bean and update its validity:
-	rememberMeService.setTokenValiditySeconds(rememberMeTokenValidityInDays * 60 * 60 * 24);</pre>
-
-and you are ready to go. 
-
-
 Registration Flow (Create Account)
 ==================================
 Fully supported. For users: contact me if something is not clear enough.
@@ -205,6 +172,8 @@ an email with restore-link. There are security issues that might arise here, suc
 that this is the 'real' user? for these cases, some implementations can add a mechanism of "secret question".
 In this example, I did not support this, in order to simplify the solution.
 
+Notes
+============
 Redirect URI
 -------------
 "Redirect URI" has a big role in authentication, as it lets the server know where to redirect the user to.
@@ -212,6 +181,37 @@ The redirect URI *can* be transferred in the registration email, for example so 
 and account is activated, the server still knows where to redirect the client to.
 *In this example, I did not support this, in order to simplify the solution.*
 
+Remember-Me
+-----------
+the "remember me" feature is *not* implemented here, since it does not serve the purpose of the authentication
+flows. It is possible to read from the "policy" table that value that indicates for how long the "remember
+me" cookie will be valid, but it is up to the developer to decide whether to implement it or not.
+I assume the user knows how to use Spring's Remember-Me feature, otherwise read the documentations. But for a short
+summary:
+
+* in the client's [beans.xml](client/src/main/webapp/WEB-INF/spring-servlet.xml) add the remember me tag:
+
+```xml
+	<security:remember-me 
+			data-source-ref="dataSource"
+			user-service-ref="userDetailsService"/>
+```
+
+* in the <code>UserActionController.java</code>, uncomment the lines:
+
+<pre>	
+	@Autowired
+	private AbstractRememberMeServices rememberMeService;</pre>
+
+* then, in UserActionController.java, 
+
+<pre>	//read the value from the policy (from the DB):
+	int rememberMeTokenValidityInDays = settings.getRememberMeTokenValidityInDays();
+
+	//get the "remem-me" bean and update its validity:
+	rememberMeService.setTokenValiditySeconds(rememberMeTokenValidityInDays * 60 * 60 * 24);</pre>
+
+and you are ready to go. 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/OhadR/authentication-flows/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
