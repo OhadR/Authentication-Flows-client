@@ -25,11 +25,13 @@ upon user's registration and "forget password" flows.
 
 common-crypto
 =============
-The authentication-flows JAR use cryptography in order to encrypt the user's password, and the links that are sent to the user's email, upon 
-user's registration and "forget password" flows.
+The authentication-flows JAR uses cryptography in order to 
+* encrypt the user's password, and 
+* encrypt the links that are sent to the user's email, upon user's registration and "forget password" flows.
 There is a utility JAR, called "common-crypto" that makes life easier. You can find it
 [here](https://github.com/OhadR/oAuth2-sample/tree/master/common-crypto),
-and also it is available in Maven repository.  Add this dependency to your POM.xml:
+and it is also available in [Maven repository](http://search.maven.org/#search%7Cga%7C1%7Ccommon-crypto).
+Add this dependency to your POM.xml:
 
 ```xml
 <dependency>
