@@ -28,9 +28,10 @@ common-crypto
 The authentication-flows JAR uses cryptography in order to 
 * encrypt the user's password, and 
 * encrypt the links that are sent to the user's email, upon user's registration and "forget password" flows.
+
 There is a utility JAR, called "common-crypto" that makes life easier. You can find it
 [here](https://github.com/OhadR/oAuth2-sample/tree/master/common-crypto),
-and it is also available in [Maven repository](http://search.maven.org/#search%7Cga%7C1%7Ccommon-crypto).
+and it is also available in [Maven Central Repository](http://search.maven.org/#search%7Cga%7C1%7Ccommon-crypto).
 Add this dependency to your POM.xml:
 
 ```xml
@@ -42,20 +43,6 @@ Add this dependency to your POM.xml:
 ```
 Note the version - make sure you use the latest.
 
-Authentication-Flows on Maven Repository
-====================
-
-If you do not want to download the source from GitHub (which is recommended), you can use it directly
-from maven repository. Add this dependency to your POM.xml:
-```xml
-<dependency>
-  <groupId>com.ohadr</groupId>
-  <artifactId>authentication-flows</artifactId>
-  <version>1.1.4</version>
-</dependency>
-```
-
-Note the version - make sure you use the latest.
 
 Configuration
 =============
@@ -177,6 +164,22 @@ In this example, I did not support this, in order to simplify the solution.
 
 Notes
 ============
+Authentication-Flows on Maven Repository
+-----------------------
+
+If you do not want to download the source from GitHub (which is recommended), you can use it directly
+from [Maven Central Repository](http://search.maven.org/#artifactdetails%7Ccom.ohadr%7Cauthentication-flows%7C1.1.4%7Cjar). Add this dependency to your POM.xml:
+
+```xml
+<dependency>
+  <groupId>com.ohadr</groupId>
+  <artifactId>authentication-flows</artifactId>
+  <version>1.1.4</version>
+</dependency>
+```
+
+Note the version - make sure you use the latest.
+
 Redirect URI
 -------------
 "Redirect URI" has a big role in authentication, as it lets the server know where to redirect the user to.
