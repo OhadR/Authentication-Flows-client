@@ -2,8 +2,9 @@ Authentication-Flows
 ====================
 
 This project is a web-app client, that writen on top of Spring Security, and uses the "authentication-flows" 
-JAR. The  "authentication-flows" project is here (under oAuth sample):
-https://github.com/OhadR/oAuth2-sample/tree/master/authentication-flows
+JAR. The  "authentication-flows" project is [here](https://github.com/OhadR/oAuth2-sample/tree/master/authentication-flows)
+(under 'oAuth sample' repository).
+
 The Authentication-Flows has its own dependencies; read about it in [its own README](https://github.com/OhadR/oAuth2-sample).
 
 The Authentication-Flows JAR implements all authentication flows: 
