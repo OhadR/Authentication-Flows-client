@@ -23,13 +23,11 @@ public class OAuth2PreAuthenticationToken extends AbstractAuthenticationToken
 		return super.getAuthorities();
 	}
 
-	@Override
 	public Object getCredentials()
 	{
 		return null;
 	}
 
-	@Override
 	public Object getPrincipal()
 	{
 		return principal;

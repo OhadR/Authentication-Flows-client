@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 public class OAuth2PreAuthenticationProvider implements AuthenticationProvider
 {
 
-	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException
 	{
 		if (!supports(authentication.getClass()))
@@ -20,7 +19,6 @@ public class OAuth2PreAuthenticationProvider implements AuthenticationProvider
 		return authentication;
 	}
 
-	@Override
 	public boolean supports(Class<?> authentication)
 	{
 		return OAuth2PreAuthenticationToken.class.isAssignableFrom(authentication);
