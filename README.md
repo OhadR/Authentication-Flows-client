@@ -19,29 +19,6 @@ So the client has its own login page, as well as other required forms. These for
 The client, which is a WAR, includes the HTMLs and JSPs, under webapp/login directory. These html and JSPs forms
 submits to a URL that the authentication-flows JAR responds to.
 
-To make it serious, authentication-flows JAR uses cryptography in order to encrypt the data in the links that are sent to the user's email, 
-upon user's registration and "forget password" flows.
-
-
-common-crypto
-=============
-The authentication-flows JAR uses cryptography in order to 
-* encrypt the user's password, and 
-* encrypt the links that are sent to the user's email, upon user's registration and "forget password" flows.
-
-There is a utility JAR, called "common-crypto" that makes life easier. You can find it
-[here](https://github.com/OhadR/oAuth2-sample/tree/master/common-crypto),
-and it is also available in [Maven Central Repository](http://search.maven.org/#search%7Cga%7C1%7Ccommon-crypto).
-Add this dependency to your POM.xml:
-
-```xml
-<dependency>
-  <groupId>com.ohadr</groupId>
-  <artifactId>common-crypto</artifactId>
-  <version>1.1.4</version>
-</dependency>
-```
-Note the version - make sure you use the latest.
 
 
 Configuration
