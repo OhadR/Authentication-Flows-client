@@ -35,7 +35,7 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>com.ohadr.oauth2</groupId>
+			<groupId>com.ohadr</groupId>
 			<artifactId>authentication-flows</artifactId>
 			<version>${project.version}</version>
 		</dependency>
