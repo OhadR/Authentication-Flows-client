@@ -113,10 +113,15 @@ as possible to Spring.
 As stated beofre, the cliend application is responsible for the html/jsp forms, that passes the data to the 
 authentication-flows module. It makes sence, because every client my have its own UI, its own logos and its own look, so there
 is no sense that the backend module supplies the UI forms.
+
 **3.1. login.htm**
+
 **3.2. createAccount.jsp**
+
 **3.3. forgotPassword.htm**
+
 **3.4. setNewPassword.jsp**
+
 **3.5. changePassword.jsp** - TBD
 
 
