@@ -68,12 +68,12 @@ add this to the `<form-login>` block:
 
 and this bean:
 
-<pre>
+```xml
 	<bean id="authenticationFailureHandler" class="com.ohadr.auth_flows.core.AuthenticationFailureHandler">
 		<constructor-arg value="/login/login.htm?login_error=1"/>
 		<property name="accountLockedUrl" value="/login/accountLocked.htm" />
 	</bean>
-</pre>
+```
 
 
 2. Database
