@@ -59,6 +59,23 @@ add this to the `<form-login>` block:
 </pre>
 after a successful login, we need to check whether the user has to change hos password (if it is expired).
 
+**1.4. authentication failure handler**
+
+add this to the `<form-login>` block:
+<pre>
+	authentication-failure-handler-ref="authenticationFailureHandler"
+</pre>
+
+and this bean:
+
+<pre>
+	<bean id="authenticationFailureHandler" class="com.ohadr.auth_flows.core.AuthenticationFailureHandler">
+		<constructor-arg value="/login/login.htm?login_error=1"/>
+		<property name="accountLockedUrl" value="/login/accountLocked.htm" />
+	</bean>
+</pre>
+
+
 2. Database
 ----------
 need to declare on dataSource bean, that is the connection to the DB.
@@ -123,6 +140,8 @@ is no sense that the backend module supplies the UI forms.
 **3.4. setNewPassword.jsp**
 
 **3.5. changePassword.jsp** - TBD
+
+**3.6. accountLocked.htm**
 
 
 

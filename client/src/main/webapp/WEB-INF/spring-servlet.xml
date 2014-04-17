@@ -50,7 +50,7 @@
 		<sec:form-login 
 			login-page="/login/login.htm" 
 			authentication-success-handler-ref="authenticationSuccessHandler"
-			authentication-failure-url="/login/login.htm?login_error=1" />
+			authentication-failure-handler-ref="authenticationFailureHandler" />
 
         <sec:remember-me 
 			data-source-ref="dataSource"
@@ -59,6 +59,12 @@
         
 	</sec:http>
 
+	<bean id="authenticationFailureHandler" class="com.ohadr.auth_flows.core.AuthenticationFailureHandler">
+		<constructor-arg value="/login/login.htm?login_error=1"/>
+		<property name="accountLockedUrl" value="/login/accountLocked.htm" />
+	</bean>
+	
+		
 	<!-- bean name="loginUrlAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
 		<property name="loginFormUrl" value="/oauth/commence" />
 		<property name="useForward" value="false" />
