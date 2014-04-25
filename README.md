@@ -51,6 +51,14 @@ add bean in the spring XML. it is in use in the `UserActionController`.
 	</bean>
 ```
 
+```xml
+	<sec:form-login 
+			login-page="/login/login.htm" 
+			authentication-success-handler-ref="authenticationSuccessHandler"
+			authentication-failure-handler-ref="authenticationFailureHandler" />
+```
+
+
 **1.3. authentication success handler**
 
 add this to the `<form-login>` block:
