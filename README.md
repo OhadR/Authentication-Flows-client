@@ -83,6 +83,21 @@ and this bean:
 	</bean>
 ```
 
+**1.5. velocity - for better emails...**
+
+issue https://github.com/OhadR/oAuth2-sample/issues/31 : read content of emails from a file. For this, we use [velocity](http://velocity.apache.org/).
+
+```xml
+    <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="velocityProperties">
+            <value>
+                resource.loader=class
+                class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+            </value>
+        </property>
+    </bean>
+```
+
 
 2. Database
 ----------
