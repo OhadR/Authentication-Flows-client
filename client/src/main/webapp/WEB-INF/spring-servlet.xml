@@ -36,7 +36,6 @@
 
     <sec:http pattern="/login/**" security="none" />
     <sec:http pattern="/forgotPasswordPage" security="none" />
-    <sec:http pattern="/forgotPassword" security="none" />
     <sec:http pattern="/createAccountPage" security="none" />
     <sec:http pattern="/createAccount" security="none" />
 
