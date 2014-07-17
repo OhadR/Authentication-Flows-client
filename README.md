@@ -106,6 +106,10 @@ The connection properties are in client.properties.
 The client is responsible for creating a schema named 'auth-flows' in the DB. In this schema, there are tables,
 created using the following scripts:
 
+<pre>
+CREATE SCHEMA `auth-flows`
+</pre>
+
 **2.1. TABLE: policy**
 
 <pre>
