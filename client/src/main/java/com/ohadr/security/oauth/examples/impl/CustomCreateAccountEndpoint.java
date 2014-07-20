@@ -18,5 +18,10 @@ public class CustomCreateAccountEndpoint extends CreateAccountEndpoint
 		
 		super.additionalValidations(email, password);
 	}
+	
+	public void postCreateAccount()
+	{
+		
+	}
 
 }
