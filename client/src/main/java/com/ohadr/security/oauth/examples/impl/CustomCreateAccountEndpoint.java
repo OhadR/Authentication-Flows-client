@@ -21,7 +21,9 @@ public class CustomCreateAccountEndpoint extends CreateAccountEndpoint
 	
 	public void postCreateAccount()
 	{
+		log.info("this is a custom message from postCreateAccount");
 		
+		super.postCreateAccount();		
 	}
 
 }
