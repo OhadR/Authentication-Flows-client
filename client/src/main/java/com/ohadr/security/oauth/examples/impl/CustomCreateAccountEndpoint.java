@@ -3,8 +3,8 @@ package com.ohadr.security.oauth.examples.impl;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
+import com.ohadr.auth_flows.endpoints.CreateAccountEndpoint;
 import com.ohadr.auth_flows.types.AuthenticationFlowsException;
-import com.ohadr.auth_flows.web.CreateAccountEndpoint;
 
 
 @Component
