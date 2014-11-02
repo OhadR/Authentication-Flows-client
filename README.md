@@ -9,7 +9,7 @@ The Authentication-Flows has its own dependencies; read about it in [its own REA
 
 The Authentication-Flows JAR implements all authentication flows: 
 * create account, 
-* forgot password, 
+* [forgot password](https://github.com/OhadR/oAuth2-sample/tree/master/authentication-flows#forgot-password-flow), 
 * change password by user request, 
 * force change password if password is expired,
 * locks the accont after pre-configured login failures.
@@ -195,13 +195,6 @@ will not be called! (in my old algorith, I handled the 'locks', so as far as Spr
 was never locked, or password was never expired.
 
 
-Registration Flow (Create Account)
-==================================
-Fully supported. For users: contact me if something is not clear enough.
-
-Forgot Password Flow
-====================
-https://github.com/OhadR/oAuth2-sample/tree/master/authentication-flows#forgot-password-flow
 
 Notes
 ============
