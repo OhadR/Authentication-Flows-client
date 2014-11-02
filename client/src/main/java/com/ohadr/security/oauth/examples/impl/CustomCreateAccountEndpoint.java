@@ -19,11 +19,11 @@ public class CustomCreateAccountEndpoint extends CreateAccountEndpoint
 		super.additionalValidations(email, password);
 	}
 	
-	public void postCreateAccount()
+	public void postCreateAccount( String username )
 	{
 		log.info("this is a custom message from postCreateAccount");
 		
-		super.postCreateAccount();		
+		super.postCreateAccount( username );		
 	}
 
 }
