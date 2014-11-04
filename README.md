@@ -8,7 +8,7 @@ JAR. The  "authentication-flows" project is [here](https://github.com/OhadR/oAut
 The Authentication-Flows has its own dependencies; read about it in [its own README](https://github.com/OhadR/oAuth2-sample).
 
 The Authentication-Flows JAR implements all authentication flows: 
-* create account, 
+* [create account](https://github.com/OhadR/oAuth2-sample/tree/master/authentication-flows#create-account-flow), 
 * [forgot password](https://github.com/OhadR/oAuth2-sample/tree/master/authentication-flows#forgot-password-flow), 
 * change password by user request, 
 * force change password if password is expired,
@@ -194,6 +194,8 @@ IMPORTANT: in Spring, once the account is locked, or disabled, etc - the "Authen
 will not be called! (in my old algorith, I handled the 'locks', so as far as Spring concerned, the account
 was never locked, or password was never expired.
 
+4. properties
+----------
 
 
 Notes
