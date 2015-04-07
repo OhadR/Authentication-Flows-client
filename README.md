@@ -196,7 +196,17 @@ was never locked, or password was never expired.
 
 4. properties
 ----------
-**com.ohadr.auth-flows.endpoints.accountActivatedEndpointUrl**
+**com.ohadr.auth-flows.linksExpirationMinutes** - 
+
+**com.ohadr.auth-flows.mail.username** - the username in the SMTP server. E.g. if you use Google account: myaccount@gmail.com
+
+**com.ohadr.auth-flows.mail.password** - the password in the SMTP server.
+
+**com.ohadr.auth-flows.email.fromField** - the string that appears in the "from" field in the emails that are sent to users. E.g 'App Admin'.
+
+**com.ohadr.auth-flows.isREST** - 'true' if this client-app uses authentication-flows' REST APIs; 'false' o/w.
+
+**com.ohadr.auth-flows.endpoints.accountActivatedEndpointUrl** - 
 Basically this is the URL that the controller redirects to, upon account activation (meaning, when the
 user clicks the link in the verification email that he gets after he subscribes). This property lets the
 auth-flows to be generic in sense that it does not force the client-app to a specific activation endpoint.
