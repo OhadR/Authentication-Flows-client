@@ -1,3 +1,5 @@
 *.prefs
 client/.settings/
 *.bak
+*.classpath
+*.project
