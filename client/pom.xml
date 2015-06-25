@@ -14,7 +14,7 @@
 	<properties>
 		<ohadr.spring.version>3.1.0.RELEASE</ohadr.spring.version>
 		<ohadr.spring.security.version>3.1.0.RELEASE</ohadr.spring.security.version>
-		<ohadr.flows.version>1.6.2-SNAPSHOT</ohadr.flows.version>
+		<ohadr.flows.version>1.6.1-SNAPSHOT</ohadr.flows.version>
 	</properties>
 
 
@@ -188,6 +188,18 @@
 			<version>1.4.1</version>
 		</dependency>
 
+
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ohadr</groupId>
+			<artifactId>common-crypto</artifactId>
+			<version>1.6.0-RELEASE</version>
+		</dependency>
 
 
 
