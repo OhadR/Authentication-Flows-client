@@ -5,8 +5,9 @@
 	<title>Set New Password Page</title>
 </head>
 
-<body onload='document.f.password.focus();InitCreateAccount();setEnc()'>
-	<h3>Set New Password</h3>
+<!-- onload='document.f.password.focus();InitCreateAccount();setEnc()'  -->
+<body >
+	<h3>Change Password</h3>
 
 	<%   
 	    if ( null != request.getParameter("err_msg") ) {
@@ -17,15 +18,19 @@
 	<%   } %>
 
 	<form name='f' id='f' 
-		action='../setNewPassword'
+		action='../changePassword'
 		method='POST'>
 		<table>
 			<tr>
 				<td><input type='hidden' name='enc' /></td>
 			</tr>
 			<tr>
-				<td>Password:</td>
-				<td><input type='password' name='password' /></td>
+				<td>Current password:</td>
+				<td><input type='password' name='currentPassword' /></td>
+			</tr>
+			<tr>
+				<td>New Password:</td>
+				<td><input type='password' name='newPassword' /></td>
 			</tr>
 			<tr>
 				<td>Confirm Password:</td>

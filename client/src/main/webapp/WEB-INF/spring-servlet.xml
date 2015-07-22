@@ -21,7 +21,7 @@
     <context:annotation-config />
 
     <mvc:default-servlet-handler />
-
+	<mvc:view-controller path="/" view-name="hello.jsp"/>
     <mvc:annotation-driven/>
 
 
@@ -38,11 +38,16 @@
     <sec:http pattern="/forgotPasswordPage" security="none" />
     <sec:http pattern="/createAccountPage" security="none" />
     <sec:http pattern="/createAccount" security="none" />
-
+	<sec:http pattern="/aa" security="none" />
+    <sec:http pattern="/rp" security="none" />
+    <sec:http pattern="/cp" security="none" />
+ 
 
 	<sec:http authentication-manager-ref="authenticationManager">
 		<!-- sec:intercept-url pattern="/secure/**" access="ROLE_USER" /-->
-		<sec:intercept-url pattern="/**" access="ROLE_USER"/>
+		<sec:intercept-url pattern="/secure/**" access="ROLE_USER" />
+		<!--sec:intercept-url pattern="/**" access="ROLE_USER"/-->
+
 		<sec:logout logout-success-url="/login/login.htm" logout-url="/logout" />
 		<sec:anonymous/>
 
