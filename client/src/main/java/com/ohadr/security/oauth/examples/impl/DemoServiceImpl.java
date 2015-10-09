@@ -8,7 +8,7 @@ public class DemoServiceImpl implements DemoService
 
     public String getTrustedMessage()
     {
-        String demo = "say hi bitch";
+        String demo = "It Works!!";
         return demo;
     }
 }
