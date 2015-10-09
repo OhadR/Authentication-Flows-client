@@ -21,7 +21,7 @@
     <context:annotation-config />
 
     <mvc:default-servlet-handler />
-
+	<mvc:view-controller path="/" view-name="hello.jsp"/>
     <mvc:annotation-driven/>
 
 
@@ -38,18 +38,26 @@
     <sec:http pattern="/forgotPasswordPage" security="none" />
     <sec:http pattern="/createAccountPage" security="none" />
     <sec:http pattern="/createAccount" security="none" />
-
+	<sec:http pattern="/aa" security="none" />
+    <sec:http pattern="/rp" security="none" />
+    <sec:http pattern="/cp" security="none" />
+ 
 
 	<sec:http authentication-manager-ref="authenticationManager">
+		<!-- sec:intercept-url pattern="/secure/**" access="ROLE_USER" /-->
 		<sec:intercept-url pattern="/secure/**" access="ROLE_USER" />
+		<!--sec:intercept-url pattern="/**" access="ROLE_USER"/-->
+
+		<sec:logout logout-success-url="/login/login.htm" logout-url="/logout" />
 		<sec:anonymous/>
 
         <!-- sec:form-login/-->
         
 		<sec:form-login 
-			login-page="/login/login.htm" 
+			login-page="/login/login.htm"
 			authentication-success-handler-ref="authenticationSuccessHandler"
 			authentication-failure-handler-ref="authenticationFailureHandler" />
+			<!-- default-target-url="/secure/hello" -->
 
         <sec:remember-me 
 			data-source-ref="dataSource"
@@ -62,7 +70,10 @@
 		<constructor-arg value="/login/login.htm?login_error=1"/>
 		<property name="accountLockedUrl" value="/login/accountLocked.htm" />
 	</bean>
-	
+
+	<!-- bean id="authenticationSuccessHandler" class="com.ohadr.auth_flows.core.AuthenticationSuccessHandlerr">
+    	<property name="defaultTargetUrl" value="/secure/hello"/>
+	</bean -->
 		
 	<!-- bean name="loginUrlAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
 		<property name="loginFormUrl" value="/oauth/commence" />
