@@ -70,53 +70,18 @@ dependencies {
 
 
 	
-	
 sourceSets {
 	main {
-		java {
-			srcDir 'src/main'
-		}
-	}
-	test {
-		java {
-			srcDir 'src/test'
+		java { 
 		}
 		resources {
-			srcDir  file('$projectDir/../../../Configuration/')
-			exclude 'automation/'
+			srcDir '$projectDir/../src/main/resources/'
 		}
 	}
 }
-
-
-jar {
-	sourceSets {
-		main {
-			java { 
-				srcDir 'src/main/java'
-			}
-		}
-		test {
-			java {
-			}
-			resources {
-			}
-		}
-	}
-
-    baseName = 'who-marketing-services-web'
-}
-
-
 
 war {
-	baseName = 'who-marketing-services-web'
-	
-	classpath = jar.outputs.files + configurations.runtime - configurations.providedRuntime
-	classpath '$projectDir/../../../Configuration'
-	rootSpec.exclude('automation/**')	
-	rootSpec.exclude('test/**')	
-	rootSpec.exclude('**/javax.servlet-api*.jar')
+	baseName = 'auth-flows-client'
 	
     manifest {
         attributes(
