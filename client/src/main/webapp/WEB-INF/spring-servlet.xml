@@ -112,9 +112,6 @@
     
 
 
-	<bean id="butkeDemoService" class="com.ohadr.security.oauth.examples.impl.DemoServiceImpl">
-	</bean>
-	
 	<bean id="passwordEncoder" 	class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
 		<constructor-arg value="256"/>
 	</bean>
@@ -123,7 +120,6 @@
 	
     <!-- decide how you wanna work: in-mem repo, or jdbc impl: -->
     <!-- bean class="com.ohadr.auth_flows.mocks.InMemoryAuthenticationAccountRepositoryImpl" /-->
-    <!-- bean class="com.ohadr.auth_flows.core.jdbc.JdbcAuthenticationAccountRepositoryImpl" /-->
     <bean id="userDetailsService" class="com.ohadr.auth_flows.core.jdbc.JdbcAuthenticationAccountRepositoryImpl" />
 
     <bean class="com.ohadr.auth_flows.core.jdbc.JdbcAuthenticationPolicyRepositoryImpl" />
