@@ -23,7 +23,7 @@ repositories {
 }
 
 ext {
-	ohadr_flows_version = "1.6.1-RELEASE"
+	ohadr_flows_version = "1.6.2-SNAPSHOT"
 	ohadr_spring_security_version = "3.1.0.RELEASE"
 	ohadr_spring_version = "3.1.0.RELEASE"
 }
@@ -31,6 +31,7 @@ ext {
 
 dependencies {
 	compile	"com.ohadr:authentication-flows:$ohadr_flows_version"
+	compile	"com.ohadr:common-crypto:$ohadr_flows_version"
 	compile	"org.springframework.security:spring-security-core:$ohadr_spring_security_version"
 	compile	"org.springframework.security:spring-security-config:$ohadr_spring_security_version"
 	compile	"org.springframework.security:spring-security-web:$ohadr_spring_security_version"
@@ -57,6 +58,7 @@ dependencies {
 	compile	"c3p0:c3p0:0.9.1.2"
 	compile	"mysql:mysql-connector-java:5.1.16"
 	compile	"commons-lang:commons-lang:2.6"
+    compile "org.apache.velocity:velocity:1.6.2"
 
 	//Pair impl -->
 	compile	"org.apache.commons:commons-lang3:3.1"
