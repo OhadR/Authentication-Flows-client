@@ -3,3 +3,5 @@ client/.settings/
 *.bak
 *.classpath
 *.project
+*/build
+*/bin
