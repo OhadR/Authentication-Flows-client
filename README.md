@@ -5,7 +5,7 @@ This project is a web-app client, that writen on top of Spring Security, and use
 JAR. The  "authentication-flows" project is [here](https://github.com/OhadR/oAuth2-sample/tree/master/authentication-flows)
 (under 'oAuth sample' repository).
 
-NOTE: Spring Versions Updated
+23-02-2016: Spring Versions Updated
 ---------------------------
 On 23-02-2016, we have updated the authentication flows dependencies to Spring newest!
 * spring security version = 4.0.3.RELEASE
