@@ -5,19 +5,18 @@
 
 <body onload='document.f.j_username.focus();'>
 	<h3>Login with Username and Password</h3>
-	<form name='f' action='../j_spring_security_check'
-		method='POST'>
+	<form name='f' action='../j_spring_security_check' method='POST'>
 		<table>
 			<tr>
 				<td>User:</td>
-				<td><input type='text' name='j_username' value=''></td>
+				<td><input type='text' name='username' value=''></td>
 			</tr>
 			<tr>
 				<td>Password:</td>
-				<td><input type='password' name='j_password' /></td>
+				<td><input type='password' name='password' /></td>
 			</tr>
 			<tr>
-				<td><input type='checkbox' name='_spring_security_remember_me' /></td>
+				<td><input type='checkbox' name='remember_me' /></td>
 				<td>Remember me on this computer.</td>
 			</tr>
 			<tr>

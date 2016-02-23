@@ -23,9 +23,9 @@ repositories {
 }
 
 ext {
-	ohadr_flows_version = "1.6.2-SNAPSHOT"
-	ohadr_spring_security_version = "3.1.0.RELEASE"
-	ohadr_spring_version = "3.1.0.RELEASE"
+	ohadr_spring_security_version = "4.0.3.RELEASE"
+	ohadr_spring_version = "4.2.4.RELEASE"
+	ohadr_flows_version = "2.0.0-SNAPSHOT"
 }
 
 
@@ -45,6 +45,7 @@ dependencies {
 	compile	"org.springframework:spring-webmvc:$ohadr_spring_version"
 	compile	"org.springframework:spring-tx:$ohadr_spring_version"
 	compile	"org.springframework:spring-expression:$ohadr_spring_version"
+	compile "org.springframework:spring-context-support:$ohadr_spring_version"
 
 	compile	"cglib:cglib:2.2.2"
 	testCompile	"javax.servlet:servlet-api:2.5"
@@ -57,6 +58,7 @@ dependencies {
 
 	compile	"c3p0:c3p0:0.9.1.2"
 	compile	"mysql:mysql-connector-java:5.1.16"
+    compile "com.jamonapi:jamon:2.4"
 	compile	"commons-lang:commons-lang:2.6"
     compile "org.apache.velocity:velocity:1.6.2"
 
