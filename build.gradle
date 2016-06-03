@@ -27,12 +27,13 @@ ext {
 	ohadr_spring_version = "4.2.4.RELEASE"
 //	ohadr_flows_version = "2.0.0-SNAPSHOT"
 	ohadr_flows_version = "1.6.1-RELEASE"
+	ohadr_crypto_version = "1.6.0-RELEASE"
 }
 
 
 dependencies {
 	compile	"com.ohadr:authentication-flows:$ohadr_flows_version"
-	compile	"com.ohadr:common-crypto:$ohadr_flows_version"
+	compile	"com.ohadr:common-crypto:$ohadr_crypto_version"
 	compile	"org.springframework.security:spring-security-core:$ohadr_spring_security_version"
 	compile	"org.springframework.security:spring-security-config:$ohadr_spring_security_version"
 	compile	"org.springframework.security:spring-security-web:$ohadr_spring_security_version"
