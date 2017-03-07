@@ -11,7 +11,7 @@ apply plugin: 'eclipse-wtp'
 //	linkedResource name: 'Configuration', type: '2', locationUri: 'PARENT-2-PROJECT_LOC/Configuration'
 }
 
-version = '1.0.0-SNAPSHOT'
+version = '2.0-SNAPSHOT'
 group = 'com.ohadr.auth-flows'
 
 sourceCompatibility = 1.8
@@ -25,7 +25,7 @@ repositories {
 ext {
 	ohadr_spring_security_version = "4.0.3.RELEASE"
 	ohadr_spring_version = "4.2.4.RELEASE"
-	ohadr_flows_version = "2.1-SNAPSHOT"
+	ohadr_flows_version = "2.1-RELEASE"
 }
 
 
