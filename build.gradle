@@ -54,8 +54,6 @@ dependencies {
 	compile	"commons-codec:commons-codec:1.5"
 
 
-
-//	compile	"c3p0:c3p0:0.9.1.2"
 	runtime "com.mchange:c3p0:0.9.5.1"
 
 //	compile	"mysql:mysql-connector-java:5.1.16"

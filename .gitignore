@@ -4,4 +4,7 @@ client/.settings/
 *.classpath
 *.project
 */bin
-client/target
+/build/
+/bin/
+.gradle
+.settings
