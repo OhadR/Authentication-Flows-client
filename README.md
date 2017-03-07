@@ -1,4 +1,4 @@
-Authentication-Flows
+Authentication-Flows [![Build Status](https://travis-ci.org/OhadR/Authentication-Flows.svg?branch=master)](https://travis-ci.org/OhadR/Authentication-Flows)
 ====================
 
 This project is a web-app client, that writen on top of Spring Security, and uses the "authentication-flows" 
