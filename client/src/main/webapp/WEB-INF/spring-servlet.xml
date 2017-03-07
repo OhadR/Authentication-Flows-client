@@ -126,6 +126,7 @@
     <bean id="userDetailsService" class="com.ohadr.auth_flows.core.jdbc.JdbcAuthenticationAccountRepositoryImpl" />
 
     <bean class="com.ohadr.auth_flows.core.jdbc.JdbcAuthenticationPolicyRepositoryImpl" />
+    <bean class="com.ohadr.auth_flows.core.jdbc.JdbcLinksRepositoryImpl" />
 
     <!-- data-source -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
