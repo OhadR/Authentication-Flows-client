@@ -3,7 +3,9 @@
 <head>
  <title>Login Page</title>
 </head>
- 
+
+<!-- based on: 
+	http://www.concretepage.com/spring/spring-security/custom-login-page-custom-error-message-spring-security --> 
 <body onload='document.f.j_username.focus();'>
 	<h3>Login with Username and Password</h3>
 	<c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
