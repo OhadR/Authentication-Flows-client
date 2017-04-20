@@ -25,12 +25,13 @@ repositories {
 ext {
 	ohadr_spring_security_version = "4.0.3.RELEASE"
 	ohadr_spring_version = "4.2.4.RELEASE"
-	ohadr_flows_version = "2.1-RELEASE"
+	ohadr_flows_version = "2.2-SNAPSHOT"
 }
 
 
 dependencies {
 	compile	"com.ohadr:authentication-flows:$ohadr_flows_version"
+
 	compile	"org.springframework.security:spring-security-core:$ohadr_spring_security_version"
 	compile	"org.springframework.security:spring-security-config:$ohadr_spring_security_version"
 	compile	"org.springframework.security:spring-security-web:$ohadr_spring_security_version"
@@ -53,19 +54,9 @@ dependencies {
 	compile	"log4j:log4j:1.2.17"
 	compile	"commons-codec:commons-codec:1.5"
 
-
 	runtime "com.mchange:c3p0:0.9.5.1"
-
-//	compile	"mysql:mysql-connector-java:5.1.16"
-    compile "com.jamonapi:jamon:2.4"
-	compile	"commons-lang:commons-lang:2.6"
-    compile "org.apache.velocity:velocity:1.6.2"
-
-	//Pair impl -->
-	compile	"org.apache.commons:commons-lang3:3.1"
-
-	// sending emails... -->
-	compile	"javax.mail:mail:1.4.1"
+	runtime	"mysql:mysql-connector-java:5.1.16"
+    runtime "com.jamonapi:jamon:2.4"
 }
 
 
