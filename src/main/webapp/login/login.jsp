@@ -1,10 +1,17 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-<title>Login Page</title>
+ <title>Login Page</title>
 </head>
-
+ 
 <body onload='document.f.j_username.focus();'>
 	<h3>Login with Username and Password</h3>
+	<c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
+      <font color="red">
+        Your login attempt was not successful due to <br/><br/>
+        <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>.
+      </font>
+    </c:if>
 	<form name='f' action='../j_spring_security_check' method='POST'>
 		<table>
 			<tr>
